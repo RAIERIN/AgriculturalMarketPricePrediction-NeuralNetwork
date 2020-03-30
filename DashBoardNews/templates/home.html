@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Welcome To Agro Prediction App </h1>
+    <br>
+    <br>
+    <p class="lead"> Allows user to enter the agricultural related news. Similalry, the articles related to agricultre are posted using this aplication. Agro Prediction is the mobile application
+    that shows the Daily Market Price of Agricultural Product Prices of Kalimati Bazar. The main feature of application is to predict the market price of agricultural products based on past daily price on Monthly Average basis.
+    </p>
+    <br>
+    <br>
+    <h2>Basic Function</h2>
+    <p>
+      <ul style="list-style-type:none">
+        <li>Dashboard for Adding News</li>
+        <li>Registered user have previlages to add, edit and delete the news</li>
+        <li>The news are only related with Agricultural product</li>
+      </ul>
+    </p>
+    <br>
+
+
+    {% if session.logged_in == NULL %}
+      <a href="/login" class="btn btn-success btn-xl">Login</a>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>MyFlaskApp</title>
+      <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  </head>
+  <body>
+    {% include 'includes/_navbar.html' %}
+    <div class="container">
+      {% include 'includes/_messages.html' %}
+      {%block body %}{% endblock %}
+    </div>
+    <script src="{{url_for('static',filename='js/jquery.min.css')}}"></script>
+    <script src="{{url_for('static',filename='js/popper.min.css')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.css')}}"></script>
+  </body>
+</html>

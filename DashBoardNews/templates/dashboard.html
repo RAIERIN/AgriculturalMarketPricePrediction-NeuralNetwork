@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body%}
+  <h1> Dashboard <small>Welcome {{session.username}}</small></h1>
+  <a class="btn btn-success" href="add_news">  Add News </a>
+  <hr>
+  <table class="table table-striped table-responsive-sm">
+    <tr>
+      <th>Id</th>
+      <th>Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Body</th>
+      <th>Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+    {% for data in news%}
+      <tr>
+        <td>{{data.id}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.author}}</td>
+        <td>{{data.body}}</td>
+        <td>{{data.current_date}}</td>
+        <td><a href="edit_news/{{data.id}}" class="btn btn-primary pull-right">Edit</a></td>
+        <td>
+          <form action="{{url_for('delete_news', id=data.id)}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Delete" class="btn btn-danger">
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
